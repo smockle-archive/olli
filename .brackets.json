@@ -1,4 +1,7 @@
 {
-  "spaceUnits": 2,
-  "useTabChar": false
+    "spaceUnits": 2,
+    "useTabChar": false,
+    "jscodehints.detectedExclusions": [
+        "/Users/clay/Sites/olli/node_modules/grunt/node_modules/js-yaml/node_modules/argparse/node_modules/underscore.string/test/test_underscore/utility.js"
+    ]
 }
