@@ -1,1 +1,1 @@
-web: grunt connect:dist:keepalive
+web: node web.js
