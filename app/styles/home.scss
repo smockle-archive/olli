@@ -48,6 +48,7 @@ address {
   text-decoration: none;
   font-style: normal;
   color: $charcoal;
+  text-align: left;
 }
 
 input[type="text"] {
@@ -64,10 +65,6 @@ input[type="text"] {
   text-align: center;
   color: $blue; 
   background: white;
-  .content {
-    padding-left: 25%;
-    padding-right: 25%;
-  }
   h1 {
     font-size: 6rem;
     padding: 0;
@@ -96,6 +93,11 @@ input[type="text"] {
   }
 }
 
+.content {
+  padding-left: 25%;
+  padding-right: 25%;
+}
+
 .blue {
   background: $blue;
   color: white;
@@ -114,4 +116,14 @@ input[type="text"] {
   flex-wrap: wrap;
   align-content: flex-end;
   justify-content: space-between;
+}
+
+#olli-email {
+  padding-top: 1rem;
+  font-size: 2rem; 
+  color: $blue;
+}
+
+#olli-email:hover {
+  color: $charcoal; 
 }
