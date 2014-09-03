@@ -3,7 +3,17 @@
 
 $color_black_white: #FFFFFD;
 $color_ironside_gray: #6C6B6A;
-$color_gulf_stream: #70AFAF;
+$color_malibu: #77b4ff;
+
+::selection {
+  background: $color_malibu;
+  color: white;
+}
+
+::-moz-selection {
+  background: $color_malibu;
+  color: white;
+}
 
 html {
   font-size: 17px;
@@ -16,12 +26,31 @@ body {
   font-family: "museo-sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+header {
+  background: $color_malibu;
+  
+  h1 {
+    color: white;
+    font-size: 3rem;
+    line-height: 3.1rem;
+    margin: 0;
+    padding: 2rem 2rem;
+    
+    @media (min-width: 50em) {
+      font-size: 4rem;
+      line-height: 4.2rem;
+      max-width: 60rem;
+    }
+  }
+}
+
 main {
   padding: 1rem;
+  max-width: 65rem;
 }
 
 a {
-  color: $color_gulf_stream;
+  color: $color_malibu;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -35,4 +64,38 @@ h1, h2, h3, h4, h5, h6 {
 
 li, p {
   max-width: 45rem;
+}
+
+.columns {
+  display: flex;
+  @media (max-width: 599px) {
+    flex-wrap: wrap;
+  }
+}
+
+.cell {
+  flex-basis: 100%;
+  padding: 0 1rem;
+  
+  @media (min-width: 600px) {
+    flex-grow: 1;
+    flex-basis: 50%;
+  }
+}
+
+@media (max-width: 599px) {
+  .cell:nth-of-type(1) {
+    order: 2;
+  }
+  .cell:nth-of-type(2) {
+    order: 1;
+  }
+}
+
+.hack-questions {
+  margin-top: 0;
+  
+  @media (min-width: 600px) {
+    margin-top: 3.2rem;
+  }
 }
