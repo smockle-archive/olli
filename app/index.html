@@ -12,7 +12,7 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/home.css">
     <!-- endbuild -->
   </head>
   <body>
@@ -20,18 +20,51 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-
-    <div class="hero-unit">
-      <h1>&apos;Allo, &apos;Allo!</h1>
-      <p>You now have</p>
-      <ul>
-      <li>HTML5 Boilerplate</li>
-      <li>Sass</li>
-
-      </ul>
+    <header class="hero">
+      <h1>Hi. I'm OLLI.</h1>
+      <p>Can I help you find something?</p>
+      <div class="header-background">
+        <img src="http://www.olliatauburn.org/images/slideshow/5.jpg">
+        <img src="http://www.olliatauburn.org/images/slideshow/6.jpg">
+        <img src="http://www.olliatauburn.org/images/slideshow/3.jpg">
+      </div>
+    </header>
+    
+    <div class="hero blue">
+      <div class="content">
+        <h2>Common responses include:</h2>
+        <div class="flex responses">
+          <ul>
+            <li><a href="join.html">Registration</a></li>
+            <li>Events</li>
+            <li>News</li>
+          </ul>
+          <ul>
+            <li>Courses</li>
+            <li>Newsletter</li>
+            <li>TED Talks</li>
+          </ul>
+          <ul>
+            <li>About</li>
+            <li>Staff and Leaders</li>
+            <li>Locations</li>
+          </ul>
+        </div>
+        <h2>Or, type what you're looking for:</h2>
+        <input id="search" type="text" disabled="disabled" placeholder="Work in progress." />
+      </div>
     </div>
-
-
+ 
+    <footer class="hero">
+      <h2>Rather speak to a person?</h2>
+      <p><a href="mailto:olli@auburn.edu">Email us</a>, <a href="tel:3348443105">call us</a>, <a href="http://auburn.edu/map/?id=142">or drop by our office between 9 and 4, Monday through Friday</a>.</p>
+      <address>
+        Linda Shook (Director) and Barbara Daron (Coordinator) <br />
+        301 OD Smith Hall <br />
+        Auburn University, AL 36849-5680
+      </address>
+    </footer>
+    
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
