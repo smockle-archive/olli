@@ -1,0 +1,25 @@
+{
+  "name": "olli",
+  "version": "0.0.0",
+  "description": "Project for Osher Lifelong Learning Institute (OLLI) at Auburn University and COMP 4710 (Senior Design Project).",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.8.7"
+  },
+  "devDependencies": {
+    "broccoli": "^0.12.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/smockle/olli.git"
+  },
+  "author": "Clay Miller <clay@smockle.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/smockle/olli/issues"
+  },
+  "homepage": "https://github.com/smockle/olli"
+}
