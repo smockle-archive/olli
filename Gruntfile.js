@@ -68,6 +68,11 @@ module.exports = function (grunt) {
       }
     },
 
+    bower: {
+      install: {
+      }
+    },
+    
     // The actual grunt server settings
     connect: {
       options: {
@@ -414,6 +419,7 @@ module.exports = function (grunt) {
   ]);
   
   grunt.registerTask('heroku', [
+    'bower',
     'default'
   ]);
 };
