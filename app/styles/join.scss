@@ -1,31 +1,38 @@
 // bower:scss
 // endbower
 
-body {
-  background: #fafafa;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #333;
+$color_black_white: #FFFFFD;
+$color_ironside_gray: #6C6B6A;
+$color_gulf_stream: #70AFAF;
+
+html {
+  font-size: 17px;
+  line-height: 1.7rem;
 }
 
-.hero-unit {
-  margin: 50px auto 0 auto;
-  width: 300px;
-  font-size: 18px;
-  font-weight: 200;
-  line-height: 30px;
-  background-color: #eee;
-  border-radius: 6px;
-  padding: 60px;
-  h1 {
-    font-size: 60px;
-    line-height: 1;
-    letter-spacing: -1px;
+body {
+  background: $color_black_white;
+  color: darken($color_ironside_gray, 20%);
+  font-family: "museo-sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+main {
+  padding: 1rem;
+}
+
+a {
+  color: $color_faded_jade;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $color_gulf_stream;
+  font-family: "museo-slab", serif;
+  
+  small {
+    color: lighten($color_ironside_gray, 25%);
   }
 }
 
-.browsehappy {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
+li, p {
+  max-width: 45rem;
 }
