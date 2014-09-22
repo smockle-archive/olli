@@ -16,6 +16,20 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/home.css">
+    <script type="text/javascript">
+      function scrollTopOf(element, to, duration) {
+          if (duration < 0) return;
+          var difference = to - element.scrollTop;
+          var perTick = difference / duration * 10;
+
+          console.log('Scrolling to top of ' + element.id + ' with scrollTop: ' + element.scrollTop + ', difference: ' + difference + ', to value: ' + to + ', duration remaining: ' + duration);
+
+          setTimeout(function () {
+              window.scroll(0, element.scrollTop + perTick);
+              scrollTopOf(element, to, duration - 10);
+          }, 10);
+      }
+    </script>
     <!-- endbuild -->
   </head>
   <body>
@@ -31,9 +45,10 @@
         <img src="http://www.olliatauburn.org/images/slideshow/6.jpg">
         <img src="http://www.olliatauburn.org/images/slideshow/3.jpg">
       </div>
+      <button class="scroll-to icon-angle-down" data-to="responses" onclick="scrollTopOf(document.getElementById('responses'), 1000, 1000);"></button>
     </header>
-    
-    <div class="hero blue">
+
+    <div id="responses" class="hero blue">
       <div class="content">
         <h2>Common responses include:</h2>
         <div class="flex responses">
@@ -56,7 +71,7 @@
         <input id="search" type="text" placeholder="Type anything!" />
       </div>
     </div>
- 
+
     <footer class="hero">
       <h2>Rather speak to a person?</h2>
       <div class="flex content">
@@ -75,9 +90,9 @@
           Auburn University, AL 36849-5680
         </address>
       </div>
-      
+
     </footer>
-    
+
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>

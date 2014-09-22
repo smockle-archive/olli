@@ -1,17 +1,7 @@
-$blue: #77b4ff;
-$orange: #f79d58;
-$ash: #747474;
-$charcoal: #333;
-
-html {
-  font-size: 17px;
-  line-height: 1.7rem;
-}
+@import 'variables';
+@import 'icons';
 
 body {
-  font-family:  'museo-sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  margin: 0;
-  padding: 0;
   overflow-x: hidden;
 }
 
@@ -23,7 +13,7 @@ h4, h5, h6 {
 ul {
   padding: 0;
   margin: 0;
-  text-align: left;  
+  text-align: left;
 }
 
 li {
@@ -42,7 +32,7 @@ a {
 }
 
 a:hover {
-  color: $ash; 
+  color: $ash;
 }
 
 address {
@@ -67,15 +57,15 @@ input[type="text"] {
 }
 
 :-moz-placeholder { /* Firefox 18- */
-   color: white;  
+   color: white;
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
-   color: white;  
+   color: white;
 }
 
-:-ms-input-placeholder {  
-   color: white;  
+:-ms-input-placeholder {
+   color: white;
 }
 
 .hero {
@@ -83,12 +73,12 @@ input[type="text"] {
   margin: 0;
   padding: 5rem 0;
   text-align: center;
-  color: $blue; 
+  color: $blue;
   background: white;
   h1 {
     font-size: 3.2rem;
     text-align: center;
-    
+
     @media (min-width: 50em) {
       font-size: 4.2rem;
     }
@@ -97,7 +87,7 @@ input[type="text"] {
     font-size: 2rem;
   }
   p, li {
-    line-height: 2.6rem;  
+    line-height: 2.6rem;
   }
   #search {
     width: 33%;
@@ -105,7 +95,7 @@ input[type="text"] {
     line-height: 2.6rem;
   }
   .responses {
-    padding-bottom: 2rem; 
+    padding-bottom: 2rem;
   }
 }
 
@@ -126,6 +116,25 @@ input[type="text"] {
   opacity: 0.09;
   overflow-x: hidden;
   white-space: nowrap;
+  z-index: 0;
+}
+
+.scroll-to {
+  width: 100%;
+  margin: 0;
+  padding: 2rem 0;
+  text-align: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 100;
+  font-size: 5rem;
+  position: absolute;
+  left: 0;
+  color: $charcoal;
+  :focus {
+    outline: none;
+  }
 }
 
 .flex {
@@ -138,10 +147,10 @@ input[type="text"] {
 #olli-email {
   padding-top: 1rem;
   padding-bottom: 1rem;
-  font-size: 2rem; 
+  font-size: 2rem;
   color: $blue;
 }
 
 #olli-email:hover {
-  color: $charcoal; 
+  color: $charcoal;
 }
