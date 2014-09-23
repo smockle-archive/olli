@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="styles/home.css">
     <script type="text/javascript">
       function scrollTopOf(element, to, duration) {
-          if (duration < 0) return;
+          if (duration <= 0) return;
           var difference = to - element.scrollTop;
           var perTick = difference / duration * 10;
 
@@ -28,6 +28,34 @@
               window.scroll(0, element.scrollTop + perTick);
               scrollTopOf(element, to, duration - 10);
           }, 10);
+      }
+    </script>
+    <script type="text/javascript">
+      function evaluate(inquiryElement) {
+        var inquiry = inquiryElement.value
+          , registration = ['registration'
+                           ,'register'
+                           ,'join'
+                           ,'membership'
+                           ,'member'
+                           ,'general'
+                           ,'academic'
+                           ]
+          , events = ['events',
+                     ,'event'
+                     ,'activities'
+                     ,'activity'
+                     ,'get-together'
+                     ,'get together'
+                     ]
+          , courses = ['courses'
+                      ,'course'
+                      ,'classes'
+                      ,'class']
+
+        if(registration.indexOf(inquiry) > -1) return 'registration'
+        if(events.indexOf(inquiry) > -1)       return 'events'
+        if(courses.indexOf(inquiry) > -1)      return 'courses'
       }
     </script>
     <!-- endbuild -->
@@ -45,7 +73,7 @@
         <img src="http://www.olliatauburn.org/images/slideshow/6.jpg">
         <img src="http://www.olliatauburn.org/images/slideshow/3.jpg">
       </div>
-      <button class="scroll-to icon-angle-down" data-to="responses" onclick="scrollTopOf(document.getElementById('responses'), 1000, 1000);"></button>
+      <button class="scroll-to icon-angle-down" data-to="responses" onclick="scrollTopOf(document.body, document.getElementById('responses').scrollHeight, 600)"></button>
     </header>
 
     <div id="responses" class="hero blue">
@@ -68,7 +96,7 @@
             <li>Locations</li>
           </ul>
         </div>
-        <input id="search" type="text" placeholder="Type anything!" />
+        <input id="search" type="search" placeholder="Type anything!" onsearch="console.log('evaluates to: ' + evaluate(this));" />
       </div>
     </div>
 
