@@ -58,6 +58,16 @@
         if(courses.indexOf(inquiry) > -1)      return 'courses'
       }
     </script>
+    <script type="text/javascript">
+      document.onkeyup = function (evt) {
+        var s = document.getElementById('search')
+        if(document.activeElement === s) { }
+        else {
+          s.focus()
+          s.value = String.fromCharCode(evt.keyCode)
+        }
+      }
+    </script>
     <!-- endbuild -->
   </head>
   <body>
