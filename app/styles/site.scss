@@ -14,6 +14,25 @@ $thisisoranger: #dd550c;
 $thisisgray: #f4f4f4;
 $thisisgrayer: #d7d7d7;
 
+$headings-font-family: "museo-slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+
+//
+// ROOT HTML TEXT SIZE
+//
+
+html {
+  font-size: 16px;
+}
+
+
+//
+// HEADINGS
+//
+
+h1, h2, h3 {
+  font-family: $headings-font-family;
+}
 
 //
 // BLUE AUBURN HEADER
@@ -85,7 +104,7 @@ header {
 .header-title a {
     color: white;
     font-family: $headings-font-family;
-    font-size: 3rem;
+    font-size: 2rem;
     text-align: left;
     padding: 0.5rem;
     @include columns(1);
@@ -96,7 +115,7 @@ header {
 }
 
 .header-navbar {
-    font-size: 3rem;
+    font-size: 1.2rem;
     text-align: left;
     width: 100%;
 
@@ -201,4 +220,142 @@ header {
     .banner {
         margin-top: 0;
     }
+}
+
+///
+/// FIXME
+///
+
+
+//
+// EVENTS BLOCK
+//
+
+.events-wrap {
+  padding: 0.5rem 2rem;
+}
+.events-wrap:after {
+
+}
+
+.event {
+    margin-bottom: 1.6rem;
+    @extend .flex;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -ms-flex-line-pack: start;
+    -webkit-align-content: flex-start;
+    align-content: flex-start;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+}
+
+.event-date,
+.event-details {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.event-date {
+    color: $thisisoranger;
+    text-align: right;
+    margin-right: 1.8rem;
+    width: 18%;
+}
+
+.event-date-month {
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+.event-date-day {
+    font-size: 4rem;
+    margin-top: -1.5rem;
+}
+
+.event-details {
+    color: darken($thisisgrayer, 39%);
+    width: 82%;
+    line-height: 160%;
+    font-size: 1rem;
+}
+
+.event-details-name {
+    color: $thisisbluer;
+    font-family: $headings-font-family;
+    font-size: 1.2rem;
+}
+
+.events-more {
+    position:relative;
+    bottom:1rem;
+}
+
+//
+// CAROUSEL BLOCK
+//
+.carousel {
+  overflow:hidden;
+}
+.carousel-item {
+  height: 100%;
+  width: 100%;
+  overflow:hidden;
+}
+.carousel-item-img {
+  height: 100%;
+  margin:0; padding:0;
+  background:#333;
+  opacity: 0.5;
+}
+.carousel-item-description {
+  position: absolute;
+  bottom: 5.2rem;
+  height: 8rem;
+  margin:0; padding:0;
+  opacity:0.8;
+  background: #333;
+  color: white;
+  padding: 1rem 0.25rem;
+  font-size: 1rem;
+}
+.carousel-item-description-header {
+  text-align: center;
+  border: 1px solid white;
+  border-radius: 8px;
+  padding: 0.5rem;
+  color: white;
+  margin-left: 38%;
+  cursor:pointer;
+}
+.carousel-item-description-header:hover {
+  background: white;
+  color: #333;
+}
+.carousel-item-description-body {
+  padding-top: 1rem;
+}
+
+
+//
+// MAIN
+//
+main {
+  border-left: 1px solid $thisisgray;
+  border-right: 1px solid $thisisgray;
+  box-sizing: border-box;
+}
+
+//
+// FOOTER
+//
+
+footer {
+  border-top: 1px solid $thisisgray;
+  padding-top: 1rem;
+
+  ul > li {
+    list-style: none;
+  }
 }
