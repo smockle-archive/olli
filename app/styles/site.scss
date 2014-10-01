@@ -1,0 +1,204 @@
+// bower:scss
+@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+// endbower
+
+//
+// AUBURN COLORS
+//
+
+$thisisblue: #496e9c;
+$thisisorange: #f68026;
+$thisisbluer: #03244d;
+$thisisoranger: #dd550c;
+
+$thisisgray: #f4f4f4;
+$thisisgrayer: #d7d7d7;
+
+
+//
+// BLUE AUBURN HEADER
+//
+
+@mixin columns ($total: 1) {
+    flex-basis: (100% / $total);
+    width: (100% / $total);
+}
+
+.flex {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-line-pack: end;
+    -webkit-align-content: flex-end;
+    align-content: flex-end;
+    -ms-flex-pack: distribute;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.flex-item {
+    @include columns();
+}
+
+.centered {
+    @extend .flex;
+    text-align: center;
+    -ms-flex-line-pack: center;
+    -webkit-align-content: center;
+    align-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+header {
+    background: $thisisbluer;
+    min-height: inherit;
+    margin-left: -15px;
+    margin-right: -15px;
+    -webkit-align-items: flex-end;
+    align-items: flex-end;
+    position: relative;
+}
+
+.header-logo {
+    padding: 2rem;
+    @include columns(1);
+
+    img {
+        display: block;
+    }
+}
+
+.header-right {
+    @include columns(1);
+    -ms-flex-pack: end;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+}
+
+.header-title,
+.header-title a {
+    color: white;
+    font-family: $headings-font-family;
+    font-size: 3rem;
+    text-align: left;
+    padding: 0.5rem;
+    @include columns(1);
+}
+
+.header-title a:hover {
+    color: $thisisorange;
+}
+
+.header-navbar {
+    font-size: 3rem;
+    text-align: left;
+    width: 100%;
+
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul li {
+        margin: 0;
+        padding: 1rem .5rem;
+        font-family: $headings-font-family;
+        display: block;
+        vertical-align: middle;
+        text-align: left;
+    }
+
+    @media (min-width: $screen-sm) {
+        ul li {
+            display: inline-block;
+            text-align: center;
+        }
+    }
+
+    ul li:after {
+        color: lighten($thisisblue, 10%);
+        content: "";
+        padding-left: 0;
+    }
+
+    @media (min-width: $screen-sm) {
+        ul li::after {
+            content: " /";
+            padding-left: 0.5rem;
+        }
+
+        ul li:last-of-type::after {
+            padding: 0;
+        }
+    }
+
+    ul li:last-of-type {
+        padding-right: 0;
+    }
+
+    ul li:last-of-type:after {
+        content: "";
+    }
+
+    ul li a {
+        color: white;
+    }
+
+    ul li a:hover {
+        color: $thisisorange;
+    }
+}
+
+@media (min-width: $screen-md) {
+    header {
+        box-sizing: border-box;
+        border-left: 1px solid $thisisgrayer;
+        border-right: 1px solid $thisisgrayer;
+    }
+    .header-logo {
+        @include columns(4);
+    }
+    .header-navbar {
+        text-align: right;
+    }
+    .header-title {
+        text-align: right;
+        padding: 0;
+    }
+    .header-right {
+        padding-right: 2rem;
+        @include columns(1.4);
+    }
+}
+
+//
+// FIRST CONTENT SECTION (BANNER)
+//
+
+.banner {
+    box-sizing: border-box;
+    position: relative;
+    z-index: 2000;
+    border-top: 1px solid $thisisgrayer;
+    border-bottom: 1px solid $thisisgrayer;
+}
+
+@media (min-width: $screen-sm) {
+    .banner {
+        border-left: 1px solid $thisisgrayer;
+        border-right: 1px solid $thisisgrayer;
+        margin-top: 50px;
+    }
+}
+
+@media (min-width: $screen-md) {
+    .banner {
+        margin-top: 0;
+    }
+}
