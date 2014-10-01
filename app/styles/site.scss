@@ -84,6 +84,14 @@ header {
     position: relative;
 }
 
+a:hover {
+  text-decoration: none;
+}
+
+ul {
+  padding-left:0;
+}
+
 .header-logo {
     padding: 2rem;
     @include columns(1);
@@ -131,6 +139,7 @@ header {
         display: block;
         vertical-align: middle;
         text-align: left;
+        list-style: none;
     }
 
     @media (min-width: $screen-sm) {
@@ -206,6 +215,9 @@ header {
     z-index: 2000;
     border-top: 1px solid $thisisgrayer;
     border-bottom: 1px solid $thisisgrayer;
+    margin-top: 4rem;
+    overflow: hidden;
+    height: 22rem;
 }
 
 @media (min-width: $screen-sm) {
@@ -261,7 +273,7 @@ header {
     color: $thisisoranger;
     text-align: right;
     margin-right: 1.8rem;
-    width: 18%;
+    width: 10%;
 }
 
 .event-date-month {
@@ -297,6 +309,7 @@ header {
 //
 .carousel {
   overflow:hidden;
+  padding-right: 0;
 }
 .carousel-item {
   height: 100%;
@@ -311,22 +324,25 @@ header {
 }
 .carousel-item-description {
   position: absolute;
-  bottom: 5.2rem;
-  height: 8rem;
+  bottom: 5rem;
+  height: 12rem;
   margin:0; padding:0;
   opacity:0.8;
   background: #333;
   color: white;
-  padding: 1rem 0.25rem;
+  padding: 2rem;
+  padding-top: 3rem;
+  padding-bottom: 1rem;
   font-size: 1rem;
 }
 .carousel-item-description-header {
   text-align: center;
   border: 1px solid white;
   border-radius: 8px;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   color: white;
-  margin-left: 38%;
+  margin-left: 21%;
+  font-size: 1.6rem;
   cursor:pointer;
 }
 .carousel-item-description-header:hover {
