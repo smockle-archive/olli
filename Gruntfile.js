@@ -15,7 +15,8 @@ module.exports = function (grunt) {
 
   // Load grunt tasks automatically
   require('jit-grunt')(grunt, {
-    useminPrepare: 'grunt-usemin'
+    useminPrepare: 'grunt-usemin',
+    bower: 'grunt-bower-task'
   });
 
   // Configurable paths
