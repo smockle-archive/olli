@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>olli</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sized="144x144" href="//www.auburn.edu/template/2013/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sized="114x114" href="//www.auburn.edu/template/2013/assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sized="72x72" href="//www.auburn.edu/template/2013/assets/ico/apple-touch-icon-72-precomposed.png" >
+    <link rel="apple-touch-icon-precomposed" href="//www.auburn.edu/template/2013/assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="//www.auburn.edu/template/2013/assets/ico/favicon.png">
+
+    <script type="text/javascript" src="//use.typekit.net/mtq7aft.js"></script>
+    <script type="text/javascript">try { Typekit.load(); } catch(e) {}</script>
+
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/normalize.css/normalize.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css(.tmp) styles/site.css -->
+    <link rel="stylesheet" href="styles/site.css">
+    <!-- endbuild -->
+  </head>
+
+  <body>
+    <header role="banner" class="flex container">
+      {{> header}}
+    </header>
+
+    <main class="container">
+      {{ body }}
+    </main>
+
+    <div class="container">
+      <footer class="row">
+        {{> footer }}
+      </footer>
+    </div>
+
+    <!-- build:js(.tmp) scripts/site.js -->
+    <script src="scripts/site.js"></script>
+    <!-- endbuild -->
+  </body>
+</html>

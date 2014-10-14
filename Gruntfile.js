@@ -14,7 +14,9 @@ module.exports = function (grunt) {
   require('time-grunt')(grunt);
 
   // Load grunt tasks automatically
-  require('load-grunt-tasks')(grunt);
+  require('jit-grunt')(grunt, {
+    useminPrepare: 'grunt-usemin'
+  });
 
   // Configurable paths
   var config = {
@@ -30,6 +32,10 @@ module.exports = function (grunt) {
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
+      assemble: {
+        files: ['<%= config.app %>/views/{,*/}*.{md,hbs,yml}'],
+        tasks: ['assemble']
+      },
       bower: {
         files: ['bower.json'],
         tasks: ['wiredep']
@@ -61,8 +67,9 @@ module.exports = function (grunt) {
           livereload: '<%= connect.options.livereload %>'
         },
         files: [
-          '<%= config.app %>/{,*/}*.html',
+          '<%= config.dist %>/{,*/}*.html',
           '.tmp/styles/{,*/}*.css',
+          '.tmp/js/{,*/}*.js',
           '<%= config.app %>/images/{,*/}*'
         ]
       }
@@ -72,7 +79,7 @@ module.exports = function (grunt) {
       install: {
       }
     },
-    
+
     // The actual grunt server settings
     connect: {
       options: {
@@ -88,21 +95,7 @@ module.exports = function (grunt) {
             return [
               connect.static('.tmp'),
               connect().use('/bower_components', connect.static('./bower_components')),
-              connect.static(config.app)
-            ];
-          }
-        }
-      },
-      test: {
-        options: {
-          open: false,
-          port: 9001,
-          middleware: function(connect) {
-            return [
-              connect.static('.tmp'),
-              connect.static('test'),
-              connect().use('/bower_components', connect.static('./bower_components')),
-              connect.static(config.app)
+              connect.static(config.dist)
             ];
           }
         }
@@ -142,16 +135,6 @@ module.exports = function (grunt) {
         '!<%= config.app %>/scripts/vendor/*',
         'test/spec/{,*/}*.js'
       ]
-    },
-
-    // Mocha testing framework configuration options
-    mocha: {
-      all: {
-        options: {
-          run: true,
-          urls: ['http://<%= connect.test.options.hostname %>:<%= connect.test.options.port %>/index.html']
-        }
-      }
     },
 
     // Compiles Sass to CSS and generates necessary files if requested
@@ -229,16 +212,22 @@ module.exports = function (grunt) {
       options: {
         dest: '<%= config.dist %>'
       },
-      html: '<%= config.app %>/{,*/}*.html'
+      html: '<%= config.dist %>/{,*/}*.html'
     },
 
     // Performs rewrites based on rev and the useminPrepare configuration
     usemin: {
-      options: {
-        assetsDirs: ['<%= config.dist %>', '<%= config.dist %>/images']
-      },
-      html: ['<%= config.dist %>/{,*/}*.html'],
-      css: ['<%= config.dist %>/styles/{,*/}*.css']
+        options: {
+            assetsDirs: ['<%= config.dist %>', '<%= config.dist %>/images', '<%= config.dist %>/fonts'],
+            patterns: {
+                js: [
+                    [/(images\/.*?\.(?:gif|jpeg|jpg|png|webp|svg))/gm, 'Update the JS to reference our revved images']
+                ]
+            }
+        },
+        html: ['<%= config.dist %>/{,*/}*.html'],
+        css: ['<%= config.dist %>/styles/{,*/}*.css'],
+        js: ['<%= config.dist %>/scripts/{,*/}*.js']
     },
 
     // The following *-min tasks produce minified files in the dist folder
@@ -337,6 +326,13 @@ module.exports = function (grunt) {
         cwd: '<%= config.app %>/styles',
         dest: '.tmp/styles/',
         src: '{,*/}*.css'
+      },
+      scripts: {
+        expand: true,
+        dot: true,
+        cwd: '<%= config.app %>/scripts',
+        dest: '.tmp/scripts/',
+        src: '{,*/}*.css'
       }
     },
 
@@ -355,9 +351,22 @@ module.exports = function (grunt) {
         'imagemin',
         'svgmin'
       ]
-    }
-  });
+    },
 
+    assemble: {
+      pages: {
+        options: {
+          flatten: true,
+          layout: '<%= config.app %>/views/layouts/default.hbs',
+          data: '<%= config.app %>/data/*.{json,yml}',
+          partials: '<%= config.app %>/views/partials/*.hbs'
+        },
+        files: {
+          '<%= config.dist %>/': ['<%= config.app %>/views/*.hbs']
+        }
+      }
+    },
+  });
 
   grunt.registerTask('serve', 'start the server and preview your app, --allow-remote for remote access', function (target) {
     if (grunt.option('allow-remote')) {
@@ -369,6 +378,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
+      'assemble',
       'wiredep',
       'concurrent:server',
       'autoprefixer',
@@ -390,15 +400,11 @@ module.exports = function (grunt) {
         'autoprefixer'
       ]);
     }
-
-    grunt.task.run([
-      'connect:test',
-      'mocha'
-    ]);
   });
 
   grunt.registerTask('build', [
     'clean:dist',
+    'assemble',
     'wiredep',
     'useminPrepare',
     'concurrent:dist',
@@ -414,12 +420,10 @@ module.exports = function (grunt) {
 
   grunt.registerTask('default', [
     'newer:jshint',
-    //'test',
     'build'
   ]);
-  
+
   grunt.registerTask('heroku', [
     'bower'
-//    'default'
   ]);
 };
