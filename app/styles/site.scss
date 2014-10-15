@@ -14,6 +14,8 @@ $thisisoranger: #dd550c;
 $thisisgray: #f4f4f4;
 $thisisgrayer: #d7d7d7;
 
+$charcoal: #333;
+
 $headings-font-family: "museo-slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 
@@ -373,5 +375,38 @@ footer {
 
   ul > li {
     list-style: none;
+  }
+
+  .footer-mailto {
+    text-align: center;
+    font-size: 2rem;
+  }
+}
+
+
+//
+// COURSES
+// (Should probably have its own file.)
+.courses-resources {
+  color: $charcoal;
+}
+
+.courses-resource-badge {
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 2rem;
+  text-align: center;
+  font-size: 1.5rem;
+  min-height: 13rem;
+
+  i {
+    display: block;
+    text-align: center;
+    margin: 1rem;
+  }
+
+  &:hover {
+    color: white;
+    background: $charcoal;
   }
 }
