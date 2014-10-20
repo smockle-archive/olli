@@ -12,13 +12,13 @@ Use it to dev OLLI.
 GFM skills, screenplay stylization, and self-reference.)*
 
 ## Table of Contents
-1. [Environment Configuration]
-  a. [OSX]
-  b. [Windows]
-  c. [Linux]
-2. [Good Habits and Team Standards]
-3. [Page Development]
-4. [Quirks and Idiosyncrasies]
+1. [Environment Configuration](#environment-configuration)
+  a. [OSX](#osx)
+  b. [Windows](#windows)
+  c. [Linux](#linux)
+2. [Good Habits and Team Standards](#good-habits-and-team-standards)
+3. [Page Development](#page-development)
+4. [Quirks and Idiosyncrasies](#quirks-and-idiosyncrasies)
 
 ## Environment Configuration
 
