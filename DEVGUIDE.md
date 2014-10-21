@@ -56,7 +56,7 @@ Create two files: `page.hb` and `page.scss` (where `page` is whatever your new p
 
 Now, to fill that content in, edit `page.hb`, but understand that you are editing, in effect, only a piece of an HTML file -- you don't have to add an `<html>` tag, or `<meta>` tags, or any of that overhead. All of the contents of `page.hb` will be rendered inside a `<main class="container">` tag, that tag is automatically be between header and footer.
 
-We have [Bootstrap]() loaded, so a lot of their classes are usable here. Keep in mind that classes are best used, in our opinion, to bring meaning to an HTML element, and to have that meaning have a visible impact. I will kill you if I see you adding styles to an element inline (i.e. `<p style="margin-left:0;margin-right:0;">This is why we can't have nice things.</p>`). Instead, do `<p class="marginless">Much better.</p>`, and add to your `page.scss` (or the `app/styles/site.scss`, if you think it needs to apply to every page!) a rule that says:
+We have [Bootstrap](http://getbootstrap.com/css/) loaded, so a lot of their classes are usable here. Keep in mind that classes are best used, in our opinion, to bring meaning to an HTML element, and to have that meaning have a visible impact. I will kill you if I see you adding styles to an element inline (i.e. `<p style="margin-left:0;margin-right:0;">This is why we can't have nice things.</p>`). Instead, do `<p class="marginless">Much better.</p>`, and add to your `page.scss` (or the `app/styles/site.scss`, if you think it needs to apply to every page!) a rule that says:
 
 ```scss
 .marginless {
