@@ -1,22 +1,7 @@
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
-
-//
-// AUBURN COLORS
-//
-
-$thisisblue: #496e9c;
-$thisisorange: #f68026;
-$thisisbluer: #03244d;
-$thisisoranger: #dd550c;
-
-$thisisgray: #f4f4f4;
-$thisisgrayer: #d7d7d7;
-
-$charcoal: #333;
-
-$headings-font-family: "museo-slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@import 'variables';
 
 
 //
@@ -252,6 +237,11 @@ ul {
 
 }
 
+.events-wrap ul {
+  margin-top: 1.8rem;
+  margin-left: 3rem;
+}
+
 .event {
     margin-bottom: 1.6rem;
     @extend .flex;
@@ -336,6 +326,7 @@ ul {
   padding-top: 3rem;
   padding-bottom: 1rem;
   font-size: 1rem;
+  width: 100%;
 }
 .carousel-item-description-header {
   text-align: center;
@@ -380,33 +371,5 @@ footer {
   .footer-mailto {
     text-align: center;
     font-size: 2rem;
-  }
-}
-
-
-//
-// COURSES
-// (Should probably have its own file.)
-.courses-resources {
-  color: $charcoal;
-}
-
-.courses-resource-badge {
-  border-radius: 8px;
-  padding: 1rem;
-  margin: 2rem;
-  text-align: center;
-  font-size: 1.5rem;
-  min-height: 13rem;
-
-  i {
-    display: block;
-    text-align: center;
-    margin: 1rem;
-  }
-
-  &:hover {
-    color: white;
-    background: $charcoal;
   }
 }

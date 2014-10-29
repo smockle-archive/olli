@@ -1,0 +1,25 @@
+@import 'variables';
+
+.courses-resources {
+  color: $charcoal;
+}
+
+.courses-resource-badge {
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 2rem;
+  text-align: center;
+  font-size: 1.5rem;
+  min-height: 13rem;
+
+  i {
+    display: block;
+    text-align: center;
+    margin: 1rem;
+  }
+
+  &:hover {
+    color: white;
+    background: $charcoal;
+  }
+}
