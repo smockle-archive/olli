@@ -209,7 +209,7 @@ ul {
     margin-top: 4rem;
     overflow: hidden;
     height: 22rem;
-  
+
   background-color: #f1f1f1;
 }
 
@@ -367,21 +367,23 @@ main {
 //
 .avatar {
   opacity: 0;
-  
+
   position: fixed;
   bottom: 0rem;
-  z-index: 5;
-  
+  z-index: 3000;
+
   font-size: 2.2rem;
-  
+
+  background-color: white;
+
   width: 13.5rem;
-  
+
   -webkit-transition: width 0.5s ease-in-out;
      -moz-transition: width 0.5s ease-in-out;
       -ms-transition: width 0.5s ease-in-out;
        -o-transition: width 0.5s ease-in-out;
           transition: width 0.5s ease-in-out;
-  
+
   &.avatar--extended {
     width: 100%;
   }
@@ -389,7 +391,7 @@ main {
 
 .avatar-btn {
   padding: 1rem;
-  
+
   &:hover {
     background: $thisisblue;
     color: white;
@@ -401,34 +403,34 @@ main {
   width: 100%;
   max-width: 0;
   overflow-x: hidden;
-  
+
   -webkit-transition: max-width 0.33s ease-in-out;
      -moz-transition: max-width 0.33s ease-in-out;
       -ms-transition: max-width 0.33s ease-in-out;
        -o-transition: max-width 0.33s ease-in-out;
           transition: max-width 0.33s ease-in-out;
-  
+
   height: 5rem;
-  
+
   position: absolute;
   bottom: 0rem;
-  
+
   background: $thisisblue;
   color: white;
-  
+
   overflow-y: hidden;
-  
+
   &.avatar-bar--visible {
     max-width: none;
     overflow-x: visible;
   }
-  
+
 }
 
 .avatar-helper-text {
   float: left;
-  
-  padding: 1rem; 
+
+  padding: 1rem;
   overflow-x: hidden;
 }
 
@@ -438,27 +440,27 @@ main {
   border-bottom: 3px solid white;
   background: $thisisblue;
   color: white;
-  
+
   width: 49%;
   padding: 0;
   overflow-x: hidden;
-  
+
   margin-top: 0.95rem;
   margin-left: 10%;
-  
+
   &:focus {
-    outline: none; 
+    outline: none;
   }
 }
 
 .avatar-close {
-  float: right; 
-  
+  float: right;
+
   padding: 1rem;
-  
+
   &:hover {
     cursor: pointer;
-  
+
     background: white;
     color: $thisisblue;
   }
