@@ -1,0 +1,37 @@
+<!DOCTYPE html> <html> <head> <meta charset=utf-8> <title>olli</title> <meta name=description content=""> <meta name=viewport content="width=device-width"> <!-- Favicons --> <link rel=apple-touch-icon-precomposed sized=144x144 href=//www.auburn.edu/template/2013/assets/ico/apple-touch-icon-144-precomposed.png> <link rel=apple-touch-icon-precomposed sized=114x114 href=//www.auburn.edu/template/2013/assets/ico/apple-touch-icon-114-precomposed.png> <link rel=apple-touch-icon-precomposed sized=72x72 href=//www.auburn.edu/template/2013/assets/ico/apple-touch-icon-72-precomposed.png> <link rel=apple-touch-icon-precomposed href=//www.auburn.edu/template/2013/assets/ico/apple-touch-icon-57-precomposed.png> <link rel="shortcut icon" href=//www.auburn.edu/template/2013/assets/ico/favicon.png> <script type=text/javascript src=//use.typekit.net/mtq7aft.js></script> <script type=text/javascript>try { Typekit.load(); } catch(e) {}</script> <!-- build:css(.) styles/vendor.css --> <!-- bower:css --> <link rel=stylesheet href="../../bower_components/normalize.css/normalize.css"> <!-- endbower --> <!-- bower:sass --> <!-- endbower --> <!-- endbuild --> <!-- build:css(.tmp) styles/site.css --> <link rel=stylesheet href=styles/7e1283f0.site.css> <!-- endbuild -->  <body> <header role=banner class="flex container"> <a class=header-logo href="http://auburn.edu/"> <img src=//cdn.auburn.edu/assets/img/header-logo.png alt="Auburn University Homepage" height=75 width=203> </a> <div class="header-right flex"> <div class=header-title><a href="http://olliatauburn.org/">OLLI at Auburn</a></div> <div class=header-navbar> <ul> <li><a href=/join.html>Join</a></li> <li><a href=/courses.html>Courses</a></li> <li><a href=#>Newsletter</a></li> <li><a href=#>Calendar</a></li> <li><a href=#>Contact Us</a></li> </ul> </div> </div> </header> <main class=container> </main> <div id=avatar class=avatar> <div class=avatar-btn> Need help? </div> <div class=avatar-bar> <span class=avatar-helper-text>Hi! I'm here to help. </span> <input placeholder="Type what you'd like help with, like 'Register' or 'Event list'."> <span class=avatar-close>X</span> </div> <script type=text/javascript src=scripts/avatar.js></script> <script type=text/javascript>(function () {
+      setTimeout(function () {
+        var a = document.getElementById('avatar')
+        
+        a.style.opacity = 0.3;
+        setTimeout(function () {
+          var a = document.getElementById('avatar')
+          
+          a.style.opacity = 1
+          a.style.color = '#496e9c'
+        }, 2000);
+      }, 2000)
+      
+      var a = document.getElementById('avatar')
+        , btn = a.children[0]
+        , bar = a.children[1]
+      
+      console.log(a.children)
+      
+      btn.onclick = function() {
+        a.classList.add('avatar--extended')
+        bar.classList.add('avatar-bar--visible')
+        bar.children[1].focus();
+      }
+      bar.children[2].onclick = function () {
+        a.classList.remove('avatar--extended')
+        bar.classList.remove('avatar-bar--visible')
+      }
+      bar.children[1].onkeyup = function (e) {
+        if(e.keyCode == 13) {
+          var input = bar.children[1].value
+          
+          console.log('input: ' + input)
+          //
+        }
+      }
+    })()</script> </div> <div class=container> <footer class=row> <section class=col-md-4> <ul> <li>Linda Shook (Director)</li> <li><a href=tel:3348443105>(334) 844-3105</a></li> <li>301 OD Smith Hall</li> <li>Auburn University, AL 36849-5680</li> </ul> </section> <section class="col-md-4 footer-mailto"> <a href=mailto:olli@auburn.edu>olli@auburn.edu</a> </section> <section class=col-md-4> <ul> <li>Barbara Daron (Coordinator)</li> <li><a href=tel:3348443102>(334) 844-3102</a></li> <li>301 OD Smith Hall</li> <li>Auburn University, AL 36849-5680</li> </ul> </section> </footer> </div> <!-- build:js(.tmp) scripts/vendor.js --> <!-- bower:js --> <script src=../../bower_components/jquery/dist/jquery.js></script> <script src=../../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/affix.js></script> <script src=../../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/alert.js></script> <script src=../../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/button.js></script> <script src=../../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/carousel.js></script> <script src=../../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/collapse.js></script> <script src=../../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/dropdown.js></script> <script src=../../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tab.js></script> <script src=../../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/transition.js></script> <script src=../../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/scrollspy.js></script> <script src=../../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/modal.js></script> <script src=../../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tooltip.js></script> <script src=../../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/popover.js></script> <!-- endbower --> <!-- endbuild --> <!-- build:js(.tmp) scripts/site.js --> <script src=scripts/d41d8cd9.site.js></script> <!-- endbuild -->  
