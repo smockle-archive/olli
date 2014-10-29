@@ -101,7 +101,7 @@
   </div>
   
   <div class="avatar-bar">
-    <span class="avatar-helper-text">Hey! I'm here to help. </span>
+    <span class="avatar-helper-text">Hi! I'm here to help. </span>
     <input type="text" placeholder="Type what you'd like help with, like 'Register' or 'Event list'.">
     <span class="avatar-close">X</span>
   </div>
@@ -136,6 +136,14 @@
       bar.children[2].onclick = function () {
         a.classList.remove('avatar--extended')
         bar.classList.remove('avatar-bar--visible')
+      }
+      bar.children[1].onkeyup = function (e) {
+        if(e.keyCode == 13) {
+          var input = bar.children[1].value
+          
+          console.log('input: ' + input)
+          //
+        }
       }
     })()
   </script>

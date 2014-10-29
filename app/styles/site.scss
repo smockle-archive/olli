@@ -30,6 +30,10 @@ h1, h2, h3 {
     width: (100% / $total);
 }
 
+p {
+  line-height: 1.428571429;
+}
+
 .flex {
     display: -ms-flexbox;
     display: -webkit-flex;
@@ -205,6 +209,8 @@ ul {
     margin-top: 4rem;
     overflow: hidden;
     height: 22rem;
+  
+  background-color: #f1f1f1;
 }
 
 @media (min-width: $screen-sm) {
@@ -423,6 +429,7 @@ main {
   float: left;
   
   padding: 1rem; 
+  overflow-x: hidden;
 }
 
 .avatar-bar input {
@@ -434,6 +441,7 @@ main {
   
   width: 49%;
   padding: 0;
+  overflow-x: hidden;
   
   margin-top: 0.95rem;
   margin-left: 10%;

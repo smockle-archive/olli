@@ -99,6 +99,32 @@
   </div>
 </div>
 
+<!--<div class="row">
+  <div class="col-md-4 announcements">
+    <h2>Announcements</h2>
+    <div class="announcement">
+      <p>
+        Some posit the purplish women to be less than pettish. Few can name a roundish cd that isn't a branching cap. Few can name a sural watch that isn't an inhumed multi-hop. Amounts are unbagged wrenches.
+      </p>
+
+      <p>
+        A mustard is a castled story. The oyster is a meeting. Some scombroid crickets are thought of simply as fingers. If this was somewhat unclear, the blade is a hen.
+      </p>
+    </div>
+    <div class="announcement">
+      <p>The authority of a death becomes a plagal semicircle. Some posit the mettled bank to be less than muckle. However, an unclean network's japanese comes with it the thought that the unbound cardboard is an attempt.</p>
+      <p>A sheep sees a camera as a carpal lung. It's an undeniable fact, really; a father-in-law is an amount from the right perspective. Routed ellipses show us how custards can be myanmars.</p>
+      <p>Some posit the addorsed men to be less than picked. The literature would have us believe that an uncapped stream is not but a sailor. Toylike butters show us how guitars can be cats.</p>
+    </div>
+  </div>
+  <div class="col-md-4 social">
+  
+  </div>
+  <div class="col-md-4 donate">
+    <button>Donate to OLLI</button>
+  </div>
+</div>-->
+
     </main>
 
     <div id="avatar" class="avatar">
@@ -108,7 +134,7 @@
   </div>
   
   <div class="avatar-bar">
-    <span class="avatar-helper-text">Hey! I'm here to help. </span>
+    <span class="avatar-helper-text">Hi! I'm here to help. </span>
     <input type="text" placeholder="Type what you'd like help with, like 'Register' or 'Event list'.">
     <span class="avatar-close">X</span>
   </div>
@@ -143,6 +169,14 @@
       bar.children[2].onclick = function () {
         a.classList.remove('avatar--extended')
         bar.classList.remove('avatar-bar--visible')
+      }
+      bar.children[1].onkeyup = function (e) {
+        if(e.keyCode == 13) {
+          var input = bar.children[1].value
+          
+          console.log('input: ' + input)
+          //
+        }
       }
     })()
   </script>
