@@ -94,6 +94,53 @@
 
     </main>
 
+    <div id="avatar" class="avatar">
+  
+  <div class="avatar-btn">
+    Need help?
+  </div>
+  
+  <div class="avatar-bar">
+    <span class="avatar-helper-text">Hey! I'm here to help. </span>
+    <input type="text" placeholder="Type what you'd like help with, like 'Register' or 'Event list'.">
+    <span class="avatar-close">X</span>
+  </div>
+  
+  
+  <script type="text/javascript" src="scripts/avatar.js"></script>
+  <script type="text/javascript">
+    (function () {
+      setTimeout(function () {
+        var a = document.getElementById('avatar')
+        
+        a.style.opacity = 0.3;
+        setTimeout(function () {
+          var a = document.getElementById('avatar')
+          
+          a.style.opacity = 1
+          a.style.color = '#496e9c'
+        }, 2000);
+      }, 2000)
+      
+      var a = document.getElementById('avatar')
+        , btn = a.children[0]
+        , bar = a.children[1]
+      
+      console.log(a.children)
+      
+      btn.onclick = function() {
+        a.classList.add('avatar--extended')
+        bar.classList.add('avatar-bar--visible')
+        bar.children[1].focus();
+      }
+      bar.children[2].onclick = function () {
+        a.classList.remove('avatar--extended')
+        bar.classList.remove('avatar-bar--visible')
+      }
+    })()
+  </script>
+</div>
+    
     <div class="container">
       <footer class="row">
         <section class="col-md-4">
