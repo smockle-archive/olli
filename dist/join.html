@@ -129,21 +129,31 @@
       
       console.log(a.children)
       
+      //  Opens the avatar helper...
       btn.onclick = function() {
         a.classList.add('avatar--extended')
         bar.classList.add('avatar-bar--visible')
         bar.children[1].focus();
       }
+      //  ...and this closes it.
       bar.children[2].onclick = function () {
         a.classList.remove('avatar--extended')
         bar.classList.remove('avatar-bar--visible')
       }
+      //  "ENTER" key up event
       bar.children[1].onkeyup = function (e) {
         if(e.keyCode == 13) {
           var input = bar.children[1].value
           
           console.log('input: ' + input)
           //
+        }
+      }
+      //  "ESC" key up event:  Closes the avatar if open.
+      bar.children[1].onkeyup = function (e) {
+        if(e.keyCode == 27) {
+            a.classList.remove('avatar--extended')
+            bar.classList.remove('avatar-bar--visible')
         }
       }
     })()
