@@ -470,6 +470,11 @@ main {
 // FOOTER
 //
 
+.avatar-bottom-margin {
+  height: 5rem;
+  min-height: 5rem;
+}
+
 footer {
   border-top: 1px solid $thisisgray;
   padding-top: 1rem;
