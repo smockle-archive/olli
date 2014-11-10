@@ -80,7 +80,7 @@ a:hover {
 }
 
 ul {
-  padding-left:0;
+  padding-left: 17px;
 }
 
 .header-logo {
@@ -473,6 +473,9 @@ main {
 .avatar-bottom-margin {
   height: 5rem;
   min-height: 5rem;
+  &:after {
+    content: ' ';
+  }
 }
 
 footer {

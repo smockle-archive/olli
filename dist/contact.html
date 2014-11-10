@@ -56,22 +56,26 @@
 <div class="row">
     <div class="col-md-12">
         <h2>Contact Us</h2>
+        <div class="col-md-12"><em>For more information about OLLI contact:</em></div>
         <ul class="col-md-6">
-            <div id="contact-info">
-                <li>Linda Shook (Director)</li>
-                <li><a href="tel:3348443105">(334) 844-3105</a></li>
-                <li>301 OD Smith Hall</li>
-                <li>Auburn University, AL 36849-5680</li>
-            </div>
+            <strong>Linda Shook</strong></br>
+            OLLI at Auburn Director, University Outreach</br>
+            301 OD Smith Hall</br>
+            Auburn University, AL 36849-5680</br>
+            Phone: <a href="tel:3348443105">(334) 844-3105</a></br>
+            Fax: <a href="tel:3348443101">(334) 844-3101</a></br>
+            Email: <a href="mailto:linda.shook@auburn.edu">linda.shook@auburn.edu</a></br>
         </ul>
         <ul class="col-md-6">
-            <div id="contact-info">
-                <li>Barbara Daron (Coordinator)</li>
-                <li><a href="tel:3348443102">(334) 844-3102</a></li>
-                <li>301 OD Smith Hall</li>
-                <li>Auburn University, AL 36849-5680</li>
-            </div>
+            <strong>Barbara Daron</strong></br>
+            OLLI at Auburn Coordinator, University Outreach</br>
+            301 OD Smith Hall</br>
+            Auburn University, AL 36849-5680</br>
+            Phone: <a href="tel:3348443102">(334) 844-3102</a></br>
+            Fax: <a href="tel:3348443101">(334) 844-3101</a></br>
+            Email: <a href="mailto:barbara.daron@auburn.edu">barbara.daron@auburn.edu</a></br>
         </ul>
+        <div class="col-md-12"><em>Or send an email to <a href="mailto:olli@auburn.edu">olli@auburn.edu</a></em></div>
     </div>
 </div>
     </main>
@@ -110,16 +114,25 @@
 
       console.log(a.children)
 
+
+      //  Opens the avatar helper...
       btn.onclick = function() {
         a.classList.add('avatar--extended')
         bar.classList.add('avatar-bar--visible')
         bar.children[1].focus();
       }
+      //  ...and this closes it.
       bar.children[2].onclick = function () {
         a.classList.remove('avatar--extended')
         bar.classList.remove('avatar-bar--visible')
       }
+      //  "ENTER" key up event
       bar.children[1].onkeyup = function (e) {
+        //  "ESC" key up event:  Closes the avatar if open.
+        if(e.keyCode == 27) {
+            a.classList.remove('avatar--extended')
+            bar.classList.remove('avatar-bar--visible')
+        }
         if(e.keyCode == 13) {
           var input = bar.children[1].value
 
@@ -137,17 +150,17 @@
         }
       }
 
-      var matches = function (in) {
+      var matches = function (i) {
 
         // # Strategy:
         // Remove unhelpful text. (whitespace, 'help me')
-        // Determine all topics that in matches.
+        // Determine all topics that i matches.
         // Pick the one most likely to be desired.
         // OR, if the options are few,
         // Show the user their options.
         // If the chosen topic needs more information,
         //   (e.g. an event or course),
-        //   see if there is anything identifying in in.
+        //   see if there is anything identifying in i.
         //   If not, display the general page for the topic.
         //   Otherwise, display the specific content.
 
@@ -183,7 +196,10 @@
 
     <div class="container">
       <footer class="row">
-        
+        <div class="avatar-bottom-margin">
+  
+</div>
+
       </footer>
     </div>
 

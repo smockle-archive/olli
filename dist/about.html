@@ -138,16 +138,25 @@
 
       console.log(a.children)
 
+
+      //  Opens the avatar helper...
       btn.onclick = function() {
         a.classList.add('avatar--extended')
         bar.classList.add('avatar-bar--visible')
         bar.children[1].focus();
       }
+      //  ...and this closes it.
       bar.children[2].onclick = function () {
         a.classList.remove('avatar--extended')
         bar.classList.remove('avatar-bar--visible')
       }
+      //  "ENTER" key up event
       bar.children[1].onkeyup = function (e) {
+        //  "ESC" key up event:  Closes the avatar if open.
+        if(e.keyCode == 27) {
+            a.classList.remove('avatar--extended')
+            bar.classList.remove('avatar-bar--visible')
+        }
         if(e.keyCode == 13) {
           var input = bar.children[1].value
 
@@ -165,17 +174,17 @@
         }
       }
 
-      var matches = function (in) {
+      var matches = function (i) {
 
         // # Strategy:
         // Remove unhelpful text. (whitespace, 'help me')
-        // Determine all topics that in matches.
+        // Determine all topics that i matches.
         // Pick the one most likely to be desired.
         // OR, if the options are few,
         // Show the user their options.
         // If the chosen topic needs more information,
         //   (e.g. an event or course),
-        //   see if there is anything identifying in in.
+        //   see if there is anything identifying in i.
         //   If not, display the general page for the topic.
         //   Otherwise, display the specific content.
 
@@ -211,7 +220,10 @@
 
     <div class="container">
       <footer class="row">
-        
+        <div class="avatar-bottom-margin">
+  
+</div>
+
       </footer>
     </div>
 
