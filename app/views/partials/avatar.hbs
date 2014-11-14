@@ -82,6 +82,7 @@
         //   If not, display the general page for the topic.
         //   Otherwise, display the specific content.
 
+        // # Keywords
         var register = [
                          'register'
                        , 'join'
@@ -95,14 +96,92 @@
                       , 'class'
                       , 'lecture'
                       ]
+          , eventsOrCourses = [
+                                'when'
+                              , 'where'
+                              ]
           , faq = [
                     'faq'
+                  , 'what'
+                  , 'how'
+                  , 'much'
                   ]
           , garbage = [
                         'help'
                       , 'me'
+                      , 'my'
+                      , 'the'
                       ]
+          , input
 
+        // # Weights
+          , REGISTER_WEIGHT = 2
+          , EVENTS_WEIGHT = 4
+          , COURSES_WEIGHT = 3
+          , EVENTS_OR_COURSES_WEIGHT = 5
+          , FAQ_WEIGHT = 1
+
+        // # Point counts
+          , registerPoints = 0
+          , eventsPoints = 0
+          , coursesPoints = 0
+          , faqPoints = 0
+
+        for(var g in garbage)
+          if(i.indexOf(g) !== -1)
+            i = i.replace(g, '')
+
+        input = i.split(' ')
+
+        for(var r in register)
+          if(input.indexOf(r) !== -1)
+            registerPoints += REGISTER_WEIGHT
+
+        for(var e in events)
+          if(input.indexOf(e) !== -1)
+            eventsPoints += EVENTS_WEIGHT
+
+        for(var c in courses)
+          if(input.indexOf(c) !== -1)
+            coursesPoints += COURSES_WEIGHT
+
+        for(var eorc in eventsOrCourses)
+          if(input.indexOf(eorc) !== -1) {
+            eventsPoints += EVENTS_OR_COURSES_WEIGHT
+            coursesPoints += EVENTS_OR_COURSES_WEIGHT
+          }
+
+        for(var f in faq)
+          if(input.indexOf(f) !== -1)
+            faqPoints += FAQ_WEIGHT
+
+        switch(Math.max(
+          [
+            registerPoints
+          , eventsPoints
+          , coursesPoints
+          , faqPoints
+          ]) {
+
+            case registerPoints:
+              window.location.href = '/index.html'
+              return true
+
+            case eventsPoints:
+              window.location.href = '/events.html'
+              return true
+
+            case coursesPoints:
+              window.location.href = '/courses.html'
+              return true
+
+            case faqPoints:
+              window.location.href = '/faq.html'
+              return true
+
+            default:
+              return false
+        }
 
 
         return false
