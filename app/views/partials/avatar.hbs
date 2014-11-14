@@ -13,179 +13,181 @@
 
   <script type="text/javascript" src="scripts/avatar.js"></script>
   <script type="text/javascript">
-    (function () {
-      setTimeout(function () {
-        var a = document.getElementById('avatar')
+/*jshint asi: true, laxcomma: true, browser: true */
 
-        a.style.opacity = 0.3;
-        setTimeout(function () {
-          var a = document.getElementById('avatar')
+(function () {
+  setTimeout(function () {
+    var a = document.getElementById('avatar')
 
-          a.style.opacity = 1
-          a.style.color = '#496e9c'
-        }, 2000);
-      }, 2000)
-
+    a.style.opacity = 0.3;
+    setTimeout(function () {
       var a = document.getElementById('avatar')
-        , btn = a.children[0]
-        , bar = a.children[1]
 
-      console.log(a.children)
+      a.style.opacity = 1
+      a.style.color = '#496e9c'
+    }, 2000);
+  }, 2000)
+
+  var a = document.getElementById('avatar')
+    , btn = a.children[0]
+    , bar = a.children[1]
+
+  console.log(a.children)
 
 
-      //  Opens the avatar helper...
-      btn.onclick = function() {
-        a.classList.add('avatar--extended')
-        bar.classList.add('avatar-bar--visible')
-        bar.children[1].focus();
-      }
-      //  ...and this closes it.
-      bar.children[2].onclick = function () {
+  //  Opens the avatar helper...
+  btn.onclick = function() {
+    a.classList.add('avatar--extended')
+    bar.classList.add('avatar-bar--visible')
+    bar.children[1].focus();
+  }
+  //  ...and this closes it.
+  bar.children[2].onclick = function () {
+    a.classList.remove('avatar--extended')
+    bar.classList.remove('avatar-bar--visible')
+  }
+  //  "ENTER" key up event
+  bar.children[1].onkeyup = function (e) {
+    //  "ESC" key up event:  Closes the avatar if open.
+    if(e.keyCode == 27) {
         a.classList.remove('avatar--extended')
         bar.classList.remove('avatar-bar--visible')
+    }
+    if(e.keyCode == 13) {
+      var input = bar.children[1].value
+
+      console.log('input: ' + input)
+      // if we recognize the input
+      // TODO: write this
+      if(matches(input)) {
+
       }
-      //  "ENTER" key up event
-      bar.children[1].onkeyup = function (e) {
-        //  "ESC" key up event:  Closes the avatar if open.
-        if(e.keyCode == 27) {
-            a.classList.remove('avatar--extended')
-            bar.classList.remove('avatar-bar--visible')
-        }
-        if(e.keyCode == 13) {
-          var input = bar.children[1].value
-
-          console.log('input: ' + input)
-          // if we recognize the input
-          // TODO: write this
-          if(matches(input)) {
-
-          }
-          else {
-            bar.children[0].innerHTML = 'I didn\'t get that.'
-            bar.children[1].style.outline = '#f00'
-            bar.children[1].value = ''
-          }
-        }
+      else {
+        bar.children[0].innerHTML = 'I didn\'t get that.'
+        bar.children[1].style.outline = '#f00'
+        bar.children[1].value = ''
       }
+    }
+  }
 
-      var matches = function (i) {
+  var matches = function (i) {
 
-        // # Strategy:
-        // Remove unhelpful text. (whitespace, 'help me')
-        // Determine all topics that i matches.
-        // Pick the one most likely to be desired.
-        // OR, if the options are few,
-        // Show the user their options.
-        // If the chosen topic needs more information,
-        //   (e.g. an event or course),
-        //   see if there is anything identifying in i.
-        //   If not, display the general page for the topic.
-        //   Otherwise, display the specific content.
+    // # Strategy:
+    // Remove unhelpful text. (whitespace, 'help me')
+    // Determine all topics that i matches.
+    // Pick the one most likely to be desired.
+    // OR, if the options are few,
+    // Show the user their options.
+    // If the chosen topic needs more information,
+    //   (e.g. an event or course),
+    //   see if there is anything identifying in i.
+    //   If not, display the general page for the topic.
+    //   Otherwise, display the specific content.
 
-        // # Keywords
-        var register = [
-                         'register'
-                       , 'join'
-                       , 'member'
-                       ]
-          , events = [
-                       'event'
-                     ]
-          , courses = [
-                        'course'
-                      , 'class'
-                      , 'lecture'
-                      ]
-          , eventsOrCourses = [
-                                'when'
-                              , 'where'
-                              ]
-          , faq = [
-                    'faq'
-                  , 'what'
-                  , 'how'
-                  , 'much'
+    // # Keywords
+    var register = [
+                     'register'
+                   , 'join'
+                   , 'member'
+                   ]
+      , events = [
+                   'event'
+                 ]
+      , courses = [
+                    'course'
+                  , 'class'
+                  , 'lecture'
                   ]
-          , garbage = [
-                        'help'
-                      , 'me'
-                      , 'my'
-                      , 'the'
-                      ]
-          , input
+      , eventsOrCourses = [
+                            'when'
+                          , 'where'
+                          ]
+      , faq = [
+                'faq'
+              , 'what'
+              , 'how'
+              , 'much'
+              ]
+      , garbage = [
+                    'help'
+                  , 'me'
+                  , 'my'
+                  , 'the'
+                  ]
+      , input
 
-        // # Weights
-          , REGISTER_WEIGHT = 2
-          , EVENTS_WEIGHT = 4
-          , COURSES_WEIGHT = 3
-          , EVENTS_OR_COURSES_WEIGHT = 5
-          , FAQ_WEIGHT = 1
+    // # Weights
+      , REGISTER_WEIGHT = 2
+      , EVENTS_WEIGHT = 4
+      , COURSES_WEIGHT = 3
+      , EVENTS_OR_COURSES_WEIGHT = 5
+      , FAQ_WEIGHT = 1
 
-        // # Point counts
-          , registerPoints = 0
-          , eventsPoints = 0
-          , coursesPoints = 0
-          , faqPoints = 0
+    // # Point counts
+      , registerPoints = 0
+      , eventsPoints = 0
+      , coursesPoints = 0
+      , faqPoints = 0
 
-        for(var g in garbage)
-          if(i.indexOf(g) !== -1)
-            i = i.replace(g, '')
+    for(var g in garbage)
+      if(i.indexOf(g) !== -1)
+        i = i.replace(g, '')
 
-        input = i.split(' ')
+    input = i.split(' ')
 
-        for(var r in register)
-          if(input.indexOf(r) !== -1)
-            registerPoints += REGISTER_WEIGHT
+    for(var r in register)
+      if(input.indexOf(r) !== -1)
+        registerPoints += REGISTER_WEIGHT
 
-        for(var e in events)
-          if(input.indexOf(e) !== -1)
-            eventsPoints += EVENTS_WEIGHT
+    for(var e in events)
+      if(input.indexOf(e) !== -1)
+        eventsPoints += EVENTS_WEIGHT
 
-        for(var c in courses)
-          if(input.indexOf(c) !== -1)
-            coursesPoints += COURSES_WEIGHT
+    for(var c in courses)
+      if(input.indexOf(c) !== -1)
+        coursesPoints += COURSES_WEIGHT
 
-        for(var eorc in eventsOrCourses)
-          if(input.indexOf(eorc) !== -1) {
-            eventsPoints += EVENTS_OR_COURSES_WEIGHT
-            coursesPoints += EVENTS_OR_COURSES_WEIGHT
-          }
-
-        for(var f in faq)
-          if(input.indexOf(f) !== -1)
-            faqPoints += FAQ_WEIGHT
-
-        switch(Math.max(
-          [
-            registerPoints
-          , eventsPoints
-          , coursesPoints
-          , faqPoints
-          ]) {
-
-            case registerPoints:
-              window.location.href = '/index.html'
-              return true
-
-            case eventsPoints:
-              window.location.href = '/events.html'
-              return true
-
-            case coursesPoints:
-              window.location.href = '/courses.html'
-              return true
-
-            case faqPoints:
-              window.location.href = '/faq.html'
-              return true
-
-            default:
-              return false
-        }
-
-
-        return false
+    for(var eorc in eventsOrCourses)
+      if(input.indexOf(eorc) !== -1) {
+        eventsPoints += EVENTS_OR_COURSES_WEIGHT
+        coursesPoints += EVENTS_OR_COURSES_WEIGHT
       }
-    })()
+
+    for(var f in faq)
+      if(input.indexOf(f) !== -1)
+        faqPoints += FAQ_WEIGHT
+
+    switch(Math.max(
+      [
+        registerPoints
+      , eventsPoints
+      , coursesPoints
+      , faqPoints
+      ])) {
+
+        case registerPoints:
+          window.location.href = '/index.html'
+          return true
+
+        case eventsPoints:
+          window.location.href = '/events.html'
+          return true
+
+        case coursesPoints:
+          window.location.href = '/courses.html'
+          return true
+
+        case faqPoints:
+          window.location.href = '/faq.html'
+          return true
+
+        default:
+          return false
+    }
+
+
+    return false
+  }
+})()
   </script>
 </div>
