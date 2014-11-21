@@ -306,8 +306,10 @@ ul {
 // CAROUSEL BLOCK
 //
 .carousel {
-  overflow:hidden;
-  padding-right: 0;
+    overflow:hidden;
+    padding-right: 0;
+    padding-left: 0;
+  
 }
 .carousel-item {
   height: 100%;
@@ -352,6 +354,106 @@ ul {
   padding-top: 1rem;
 }
 
+//
+// LINKS ROW
+//
+.links {
+    box-sizing: border-box;
+    position: relative;
+    z-index: 2000;
+    border: 1px solid $thisisgrayer;
+    overflow: hidden;
+    height: 6rem;
+
+    background-color: #f1f1f1;
+    
+    .links-fb {
+        background-color: #3b5998;
+        color: white;
+        font-family: "Lucida Grande", Lucida, sans-serif;
+        font-size: x-large;
+        height: 6rem;
+        padding-top: 1.75rem;
+        text-align: center;
+    }
+    .links-fb:hover {
+        background-color: #3b5998;
+        border: 1px solid $thisisgrayer;
+        color: white;
+        font-family: "Lucida Grande", Lucida, sans-serif;
+        font-size: 175%;
+        height: 6rem;
+        padding-top: 1.6rem;
+        text-align: center;
+    }
+    .links-tw {
+        background-color: #4099FF;
+        color: white;
+        font-family: "Helvetica Neue", Helvetica, sans-serif;
+        font-size: x-large;
+        height: 6rem;
+        padding-top: 1.75rem;
+        text-align: center;
+    }
+    .links-tw:hover {
+        background-color: #4099FF;
+        border: 1px solid $thisisgrayer;
+        color: white;
+        font-family: "Helvetica Neue", Helvetica, sans-serif;
+        font-size: 175%;
+        height: 6rem;
+        padding-top: 1.75rem;
+        text-align: center;   
+    }
+    .links-ted {
+        background-color: white;
+        color: red;
+        font-family: "Helvetica Neue Custom", "Helvetica Neue", Helvetica,Arial, sans-serif;
+        font-size: xx-large;
+        font-weight: bold;
+        height: 6rem;
+        padding-top: 1.5rem;
+        text-align: center;
+    }
+    .links-ted:hover {
+        background-color: white;
+        border: 1px solid $thisisgrayer;
+        color: red;
+        font-family: "Helvetica Neue Custom", "Helvetica Neue", Helvetica,Arial, sans-serif;
+        font-size: 250%;
+        font-weight: bold;
+        height: 6rem;
+        padding-top: 1.4rem;
+        text-align: center;   
+    }
+    .links-olli {
+        background-color: #f1f1f1;
+        border: 1px solid $thisisgrayer;
+        font-family: $headings-font-family;
+        font-size: 200%;
+        height: 6rem;
+        padding-top: 1.5rem;
+        text-align: center;
+    }
+    .links-faq {
+        background-color: #f1f1f1;
+        border: 1px solid $thisisgrayer;
+        font-family: $headings-font-family;
+        font-size: 200%;
+        height: 6rem;
+        padding-top: 1.5rem;
+        text-align: center;
+    }
+    .links-feat {
+        background-color: #f1f1f1;
+        border: 1px solid $thisisgrayer;
+        font-family: $headings-font-family;
+        font-size: 200%;
+        height: 6rem;
+        padding-top: 1.5rem;
+        text-align: center;
+    }
+}
 
 //
 // MAIN
